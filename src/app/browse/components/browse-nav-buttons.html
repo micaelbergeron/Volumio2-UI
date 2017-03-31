@@ -12,6 +12,12 @@
   <i class="fa fa-arrow-circle-left"></i>
 </button>
 <button
+  class="btn-link btn-play-current"
+  ng-if="browse.browseService.canPlayCurrent()"
+  ng-click="browse.playAll(browse.browseService.playableItems)">
+  <i class="fa fa-play"/>
+</button>
+<button
     class="btn-link"
     ng-click="browse.toggleGridView()"
     title="{{((browse.browseService.showGridView) ? 'COMMON.LIST': 'COMMON.GRID') | translate}}"

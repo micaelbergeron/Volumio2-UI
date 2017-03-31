@@ -159,6 +159,21 @@ class BrowseService {
     return false;
   }
 
+  canPlayCurrent() {
+    if (!this.currentFetchRequest) return false;
+    
+    let { uri, type } = this.currentFetchRequest;
+
+    return (uri.startsWith("albums://") && type === 'folder')
+        || (uri.startsWith("artist://") && type === 'folder');
+  }
+
+  get playableItems() {
+    return this.lists.reduce((songs, list) => {
+      return songs.concat(list.items.filter(item => item.type === 'song'));
+    }, []);
+  }
+
   toggleGridView() {
     this.showGridView = !this.showGridView;
   }

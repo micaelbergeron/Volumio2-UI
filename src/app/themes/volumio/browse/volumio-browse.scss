@@ -134,9 +134,13 @@
 
   .commandButtons {
     float: right;
-    padding-top: 8px;
-    width: 35px;
     font-size: 20px;
+
+    button {
+      width: 2em;
+      height: 2em;
+    }
+    
     .dropdown-menu {
       left: auto;
       right: 10px;

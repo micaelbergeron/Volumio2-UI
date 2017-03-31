@@ -38,6 +38,12 @@ class BrowseController {
     this.browseService.backHome();
   }
 
+  playAll(items) {
+    const [play, ...enqueue] = items;
+    this.playQueueService.addPlay(play);
+    enqueue.map(item => this.playQueueService.add(item));
+  }
+
   play(item) {
     if (this.browseService.currentFetchRequest && this.browseService.currentFetchRequest.uri === 'playlists') {
       this.playQueueService.playPlaylist(item);
